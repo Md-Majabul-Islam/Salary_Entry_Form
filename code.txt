@@ -1,0 +1,66 @@
+using System;
+using System.Windows.Forms;
+
+namespace SalaryEntryForm
+{
+ public partial class Form1 : Form
+ {
+ public Form1()
+ {
+ InitializeComponent();
+ }
+
+ private void checkButton_Click(object sender, EventArgs e)
+ {
+ string name = nameTextBox.Text;
+ string contactNo = contactNoTextBox.Text;
+ string salaryText = salaryTextBox.Text;
+
+ double salary = Convert.ToDouble(salaryText);
+
+ double percentage = 0.0;
+ double bonus = 0.0;
+ double salaryWithBonus = 0.0;
+
+ if(salary > 35000)
+ {
+ percentage = 10;
+ bonus = (salary * percentage) / 100;
+ salaryWithBonus = salary + bonus;
+ }
+ else if (salary <= 35000 && salary >= 25000)
+ {
+ percentage = 8.0;
+ bonus = (salary * percentage) / 100;
+ salaryWithBonus = salary + bonus;
+ }
+ else if (salary < 25000 && salary >=20000)
+ {
+ percentage = 6.0;
+ bonus = (salary * percentage) / 100;
+ salaryWithBonus = salary + bonus;
+ }
+ else
+ {
+ percentage = 4.0;
+ bonus = (salary * percentage) / 100;
+ salaryWithBonus = salary + bonus;
+ }
+
+ MessageBox.Show
+ (
+ "Dear: " + name + " \n" +
+ "Contact Number: " +contactNo+ "\n"+
+ "...................................." +"\n\n"+
+ "Your Basic Salary: " + salary + "\n"+
+ "Eid Bonus: " + percentage + " %"+ "\n" +
+ "Eid Bonus: " + bonus +" TK"+"\n"+
+ "...................................." + "\n\n" +
+ "Salary with Bonus: " + salaryWithBonus +" TK"+"\n" );
+
+
+ }
+ 
+
+ }
+}
